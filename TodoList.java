@@ -2,15 +2,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TodoList {
-  private ArrayList<String> tasks;
-
+  private ArrayList<String> tasks; // ArrayList to store tasks
+  // Constructor to initialize the tasks ArrayList
   public TodoList() {
     tasks = new ArrayList<>();
   }
-
+  // Method to add a task to the list
   public void addTask(String task) {
     tasks.add(task);
   }
+  // Method to remove a task from the list by index
   public void removeTask(int index) {
     if (index >= 0 && index < tasks.size()) {
       tasks.remove(index);
@@ -19,7 +20,7 @@ public class TodoList {
       System.out.println("Invalid Task.");
     }
 }
-
+// Method to move a task from one position to another
 public void moveTask(int currentTask, int newTask) {
   if (currentTask >= 0 && currentTask < tasks.size() && 
       newTask >= 0 && newTask < tasks.size()) {
@@ -30,7 +31,7 @@ public void moveTask(int currentTask, int newTask) {
     System.out.println("Invalid Task.");
     }
 }
-
+// Method to display tasks in the list
 public void displayTasks() {
   if(tasks.isEmpty()) {
     System.out.println("No tasks in the list.");
@@ -44,10 +45,10 @@ public void displayTasks() {
 }
 
   public static void main(String[] args) {
-    TodoList todoList = new TodoList();
+    TodoList todoList = new TodoList(); // Create an instance of TodoList
     Scanner input = new Scanner(System.in);
     boolean exit = false;
-
+    // Main menu loop
     while(!exit) {
       System.out.println("\nTodo List Menu:");
       System.out.println("1. Add Task");
@@ -59,6 +60,7 @@ public void displayTasks() {
       int choice = input.nextInt();
       input.nextLine();
 
+      // Perform actions based on user's choice
       if (choice == 1) {
         System.out.print("Enter the task to add: ");
         String taskToAdd = input.nextLine();
@@ -88,6 +90,6 @@ public void displayTasks() {
         System.out.println("Invalid choice. Please try again.");
       }
     }
-    input.close();
+    input.close(); // Close the Scanner
   }
 }
